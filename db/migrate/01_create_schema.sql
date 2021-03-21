@@ -1,0 +1,14 @@
+GRANT ALL PRIVILEGES ON *.* TO 'app' @'%' IDENTIFIED BY 'app';
+
+FLUSH PRIVILEGES;
+
+CREATE SCHEMA IF NOT EXISTS `sample_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+CREATE TABLE `sample_db`.`foods` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(45) NOT NULL,
+    `price` INT UNSIGNED NOT NULL,
+    `note` VARCHAR(45) NULL,
+    UNIQUE INDEX `name_UNIQUE` (`name` ASC),
+    PRIMARY KEY (`id`)
+);
