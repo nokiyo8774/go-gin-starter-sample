@@ -1,1 +1,1 @@
-# ffdf
+# go-gin-starter-sample
