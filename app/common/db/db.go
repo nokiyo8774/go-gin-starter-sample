@@ -1,7 +1,7 @@
 package db
 
 import (
-	"app/common/config"
+	config "app/common/config/db"
 	"database/sql"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -9,7 +9,7 @@ import (
 
 var DB *sql.DB
 
-func Open() {
+func Setup() {
 	var err error
 	conf := config.DB
 

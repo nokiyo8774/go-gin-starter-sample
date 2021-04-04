@@ -8,6 +8,7 @@ services:
       - ./_docker/app/.env
     volumes:
       - ./app:/go/src/app
+      - ./log/:/var/log/app
     depends_on:
       - db
   db:

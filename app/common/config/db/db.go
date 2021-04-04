@@ -14,7 +14,7 @@ var DB = struct {
 	Port     string `default:"3306"`
 }{}
 
-func Load() {
+func Setup() {
 	configor.Load(&DB, []string{}...)
 	fmt.Printf("config: %#v", DB)
 }

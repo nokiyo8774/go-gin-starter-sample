@@ -2,14 +2,17 @@ package main
 
 //go:generate sqlboiler --wipe mysql
 import (
-	"app/common/config"
+	config "app/common/config/db"
 	"app/common/db"
-	"app/server"
+	"app/routers"
 )
 
+func init() {
+	config.Setup()
+	db.Setup()
+}
+
 func main() {
-	config.Load()
-	db.Open()
-	defer db.Close()
-	server.Init()
+	r := routers.Init()
+	r.Run()
 }
