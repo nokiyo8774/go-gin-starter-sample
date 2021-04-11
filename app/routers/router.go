@@ -17,7 +17,13 @@ func Init() *gin.Engine {
 	r.Use(ginzap.Ginzap(logger, time.RFC3339, true))
 	r.Use(ginzap.RecoveryWithZap(logger, true))
 
-	u := r.Group("/foods")
+	u := r.Group("/system-manager")
+	{
+		ctrl := controllers.SystemManagerController{}
+		u.GET("helth-check", ctrl.Index)
+	}
+
+	u = r.Group("/foods")
 	{
 		ctrl := controllers.FoodController{}
 		u.GET("", ctrl.Index)
