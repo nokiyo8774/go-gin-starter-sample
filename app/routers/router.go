@@ -12,7 +12,7 @@ import (
 func Init() *gin.Engine {
 	r := gin.Default()
 
-	logger, _ := logging.Setup()
+	logger := logging.Setup()
 
 	r.Use(ginzap.Ginzap(logger, time.RFC3339, true))
 	r.Use(ginzap.RecoveryWithZap(logger, true))
