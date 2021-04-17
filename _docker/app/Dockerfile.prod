@@ -1,7 +1,5 @@
 FROM golang:1.16.2 as builder
 
-RUN mkdir -p /var/log/app
-
 ENV SRC_DIR=$GOPATH/src/app
 RUN mkdir -p $SRC_DIR
 WORKDIR $SRC_DIR
@@ -15,7 +13,8 @@ ARG GOARCH=amd64
 
 RUN go build -ldflags="-w -s" -o /go/bin/app
 
-FROM scratch
+FROM alpine:3.13.5
+RUN mkdir -p /var/log/app
 COPY --from=builder /go/bin/app /go/bin/app
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 
