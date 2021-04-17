@@ -20,7 +20,7 @@ func Init() *gin.Engine {
 	u := r.Group("/system-manager")
 	{
 		ctrl := controllers.SystemManagerController{}
-		u.GET("helth-check", ctrl.Index)
+		u.GET("health-check", ctrl.Index)
 	}
 
 	u = r.Group("/foods")
