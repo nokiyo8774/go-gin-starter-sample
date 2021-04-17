@@ -22,6 +22,21 @@ func Setup(options ...zap.Option) *zap.Logger {
 	return logger
 }
 
+// func Setup(options ...zap.Option) (*zap.Logger, error) {
+// 	return zap.Config{
+// 		Level:       zap.NewAtomicLevelAt(zap.InfoLevel),
+// 		Development: false,
+// 		Sampling: &zap.SamplingConfig{
+// 			Initial:    100,
+// 			Thereafter: 100,
+// 		},
+// 		Encoding:         "json",
+// 		EncoderConfig:    encoderConfig(),
+// 		OutputPaths:      []string{"stdout", "/var/log/app/access.log"},
+// 		ErrorOutputPaths: []string{"stderr"},
+// 	}.Build(options...)
+// }
+
 func encoderConfig() zapcore.EncoderConfig {
 	return zapcore.EncoderConfig{
 		TimeKey:        "ts",
