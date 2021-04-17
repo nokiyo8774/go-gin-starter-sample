@@ -8,7 +8,7 @@ services:
       - ./_docker/app/.env
     volumes:
       - ./app:/go/src/app
-      - ./log/:/var/log/app
+      - ./log/:/var/log/
     ports:
       - 8080:8080
     depends_on:
