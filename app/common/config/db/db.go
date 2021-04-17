@@ -8,7 +8,7 @@ import (
 
 var DB = struct {
 	Name     string `default:"sample_db"`
-	Host     string `default:"db"`
+	Host     string `default:"db" env:"MYSQL_HOST"`
 	User     string `required:"true" env:"MYSQL_USER"`
 	Password string `required:"true" env:"MYSQL_PASS"`
 	Port     string `default:"3306"`
